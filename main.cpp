@@ -4,30 +4,80 @@
 //Prototypes
 void rpgInit();
 void rpgCleanup();
+void writeChar(int posX, int posY);
 
 int main() {
 
   rpgInit(); // Call the init function
+  cbreak(); //Stop th eline buffering, everything comes to me :)
+  keypad(stdscr, TRUE); //Enable F1
 
-  //Cursor position variables
-  int xPos = 0;
-  int yPos = 0;
+  int currentX = 0;
+  int currentY = 0;
 
-  for (int i = 0; i <= 10; i++) {
-    //Increment the position variables
-    xPos = i;
-    yPos = i;
+  int targetX = 0;
+  int targetY = 0;
 
-    move(xPos, yPos); //Move the cursor
+  int ch;
 
-    std::string str = "X"; //Our string we'll be using
+  const char space[1] = {' '}; //Soace string
 
-    addch('X'); //Print a x
+  while ((ch = getch()) != KEY_F(1)) {
+    switch(ch) {
+      case KEY_LEFT:
+        targetX--;
 
+        move(currentY, currentX);
+        printw(space);
+
+        currentX = targetX;
+        currentY = targetY;
+
+        writeChar(currentX, currentY);
+
+        break;
+
+      case KEY_RIGHT:
+        targetX++;
+
+        move(currentY, currentX);
+        printw(space);
+
+        currentX = targetX;
+        currentY = targetY;
+
+        writeChar(currentX, currentY);
+
+        break;
+
+      case KEY_UP:
+        targetY--;
+
+        move(currentY, currentX);
+        printw(space);
+
+        currentX = targetX;
+        currentY = targetY;
+
+        writeChar(currentX, currentY);
+
+        break;
+
+      case KEY_DOWN:
+        targetY++;
+
+        move(currentY, currentX);
+        printw(space);
+
+        currentX = targetX;
+        currentY = targetY;
+
+        writeChar(currentX, currentY);
+
+        break;
+
+    }
   }
-
-  //Wait for user input
-  getch();
 
   rpgCleanup();
 
@@ -50,7 +100,13 @@ void rpgCleanup() {
 }
 
 
-//GOOD REFERENCEs:
+void writeChar(int posX, int posY) {
+  move(posY, posX); //Move the cursor
+  char x[1] = {'X'};
+  printw(x); //Print the character
+}
+
+//GOOD REFERENCES:
 /*
 printw(string);         Print on stdscr at present cursor position
 mvprintw(y, x, string);  Move to (y, x) then print string
@@ -58,4 +114,6 @@ wprintw(win, string);   Print on window win at present cursor position
                             in the window
 mvwprintw(win, y, x, string);    Move to (y, x) relative to window
                                      co-ordinates and then print
+
+Tutorial : http://tldp.org/HOWTO/NCURSES-Programming-HOWTO/index.html
 */

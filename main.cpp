@@ -1,10 +1,13 @@
 #include <ncurses.h>
 #include <iostream>
+#include <fstream>
+#include <cstring>
 
 //Prototypes
 void rpgInit();
 void rpgCleanup();
 void writeChar(int posX, int posY);
+void loadLevel(std::string file);
 
 int main() {
 
@@ -21,6 +24,8 @@ int main() {
   int ch;
 
   const char space[1] = {' '}; //Soace string
+
+  loadLevel("level");
 
   while ((ch = getch()) != KEY_F(1)) {
     switch(ch) {
@@ -104,6 +109,38 @@ void writeChar(int posX, int posY) {
   move(posY, posX); //Move the cursor
   char x[1] = {'X'};
   printw(x); //Print the character
+}
+
+void loadLevel(std::string file) {
+  std::string map[3][5];
+
+  //Convert filename to char*
+  const char *fileName = file.c_str();
+
+  //Create an iftream object and open our file
+  std::ifstream level;
+  level.open(fileName);
+
+  //Variable we'll be putting the line read into
+  std::string input;
+
+  for (int i = 0; i <= 2; i++) {
+    getline(level, input); //Get the line
+
+    //Process it and put it in the level array
+    for (int j = 0; i <= 4; i++) {
+      map[i][j] = input[j];
+    }
+  }
+
+  //Print out the map array
+  for (int i = 0; i <= 2; i++) {
+
+    for (int j = 0; i <= 4; i++) {
+      std::cout << map[i][j] << std::endl;
+    }
+
+  }
 }
 
 //GOOD REFERENCES:

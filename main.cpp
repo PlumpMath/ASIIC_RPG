@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstring>
+#include <sstream>
 
 //Prototypes
 void rpgInit();
@@ -115,7 +116,6 @@ void writeChar(int posX, int posY) {
 
 void loadLevel(std::string file) {
   std::cout << "In loadlevel" << std::endl; //DEBUG
-  std::string map[5][5];
 
   //Convert filename to char*
   const char *fileName = file.c_str();
@@ -124,17 +124,30 @@ void loadLevel(std::string file) {
   std::ifstream level;
   level.open(fileName);
 
+  //Size of the map array
+  int mapX;
+  int mapY;
+
   //Variable we'll be putting the line read into
   std::string input;
 
+  //Construct the map array using the sizes specified at the beginning of the file
+  getline(level, input);
+  std::istringstream ( input ) >> mapX;
+
+  getline(level, input);
+  std::istringstream ( input ) >> mapY;
+
+  std::string map[mapY][mapX];
+
   std::cout << "Created variables and opened file" << std::endl;
 
-  for (int i = 0; i <= 2; i++) {
+  for (int i = 0; i <= mapY - 1; i++) {
     std::cout << "In getline loop" << std::endl;
     getline(level, input); //Get the line
 
     //Process it and put it in the level array
-    for (int j = 0; j <= 4; j++) {
+    for (int j = 0; j <= mapX - 1; j++) {
       std::cout << "Adding input to map : " << i << " " << j << std::endl;
       map[i][j] = input[j];
       std::cout << "Input : " << input[j] << std::endl;
@@ -143,9 +156,9 @@ void loadLevel(std::string file) {
   }
 
   //Print out the map array
-  for(int i = 0; i <= 2; i++) {
+  for(int i = 0; i <= mapY - 1; i++) {
     std::cout << "In print loop" << std::endl;
-    for(int j = 0; j <= 4; j++) {
+    for(int j = 0; j <= mapX - 1; j++) {
       std::cout << map[i][j] << std::endl;
     }
 

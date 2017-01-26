@@ -11,78 +11,80 @@ void loadLevel(std::string file);
 
 int main() {
 
-  rpgInit(); // Call the init function
+  // rpgInit(); // Call the init function
   cbreak(); //Stop th eline buffering, everything comes to me :)
   keypad(stdscr, TRUE); //Enable F1
 
-  int currentX = 0;
-  int currentY = 0;
-
-  int targetX = 0;
-  int targetY = 0;
-
-  int ch;
-
-  const char space[1] = {' '}; //Soace string
 
   loadLevel("level");
 
-  while ((ch = getch()) != KEY_F(1)) {
-    switch(ch) {
-      case KEY_LEFT:
-        targetX--;
-
-        move(currentY, currentX);
-        printw(space);
-
-        currentX = targetX;
-        currentY = targetY;
-
-        writeChar(currentX, currentY);
-
-        break;
-
-      case KEY_RIGHT:
-        targetX++;
-
-        move(currentY, currentX);
-        printw(space);
-
-        currentX = targetX;
-        currentY = targetY;
-
-        writeChar(currentX, currentY);
-
-        break;
-
-      case KEY_UP:
-        targetY--;
-
-        move(currentY, currentX);
-        printw(space);
-
-        currentX = targetX;
-        currentY = targetY;
-
-        writeChar(currentX, currentY);
-
-        break;
-
-      case KEY_DOWN:
-        targetY++;
-
-        move(currentY, currentX);
-        printw(space);
-
-        currentX = targetX;
-        currentY = targetY;
-
-        writeChar(currentX, currentY);
-
-        break;
-
-    }
-  }
+  // int currentX = 0;
+  // int currentY = 0;
+  //
+  // int targetX = 0;
+  // int targetY = 0;
+  //
+  // int ch;
+  //
+  // const char space[1] = {' '}; //Soace string
+  //
+  //
+  // while ((ch = getch()) != KEY_F(1)) {
+  //   switch(ch) {
+  //     case KEY_LEFT:
+  //       targetX--;
+  //
+  //       move(currentY, currentX);
+  //       printw(space);
+  //
+  //       currentX = targetX;
+  //       currentY = targetY;
+  //
+  //       writeChar(currentX, currentY);
+  //
+  //       break;
+  //
+  //     case KEY_RIGHT:
+  //       targetX++;
+  //
+  //       move(currentY, currentX);
+  //       printw(space);
+  //
+  //       currentX = targetX;
+  //       currentY = targetY;
+  //
+  //       writeChar(currentX, currentY);
+  //
+  //       break;
+  //
+  //     case KEY_UP:
+  //       targetY--;
+  //
+  //       move(currentY, currentX);
+  //       printw(space);
+  //
+  //       currentX = targetX;
+  //       currentY = targetY;
+  //
+  //       writeChar(currentX, currentY);
+  //
+  //       break;
+  //
+  //     case KEY_DOWN:
+  //       targetY++;
+  //
+  //       move(currentY, currentX);
+  //       printw(space);
+  //
+  //       currentX = targetX;
+  //       currentY = targetY;
+  //
+  //       writeChar(currentX, currentY);
+  //
+  //       break;
+  //
+  //   }
+  //  }
 
   rpgCleanup();
 
@@ -112,7 +114,8 @@ void writeChar(int posX, int posY) {
 }
 
 void loadLevel(std::string file) {
-  std::string map[3][5];
+  std::cout << "In loadlevel" << std::endl; //DEBUG
+  std::string map[5][5];
 
   //Convert filename to char*
   const char *fileName = file.c_str();
@@ -124,19 +127,25 @@ void loadLevel(std::string file) {
   //Variable we'll be putting the line read into
   std::string input;
 
+  std::cout << "Created variables and opened file" << std::endl;
+
   for (int i = 0; i <= 2; i++) {
+    std::cout << "In getline loop" << std::endl;
     getline(level, input); //Get the line
 
     //Process it and put it in the level array
-    for (int j = 0; i <= 4; i++) {
+    for (int j = 0; j <= 4; j++) {
+      std::cout << "Adding input to map : " << i << " " << j << std::endl;
       map[i][j] = input[j];
+      std::cout << "Input : " << input[j] << std::endl;
+      std::cout << "Input added" << std::endl;
     }
   }
 
   //Print out the map array
-  for (int i = 0; i <= 2; i++) {
-
-    for (int j = 0; i <= 4; i++) {
+  for(int i = 0; i <= 2; i++) {
+    std::cout << "In print loop" << std::endl;
+    for(int j = 0; j <= 4; j++) {
       std::cout << map[i][j] << std::endl;
     }
 

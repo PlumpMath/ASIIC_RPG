@@ -67,10 +67,14 @@ Map::Map(std::string file) {
 
   getline(level, input);
   std::istringstream ( input ) >> this.mapY;
-
-  level.close();
 }
 
 Map::~Map() {
 
+}
+
+int *mapSize() {
+  int *size = {mapX, mapY};
+
+  return size;
 }

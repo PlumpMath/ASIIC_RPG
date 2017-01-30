@@ -22,6 +22,10 @@ public: //Methods
   //Draws the characters stored in the map array to the screen
   void drawMap();
 
+  //Getters and setters
+  int *mapSize();
+  std::string[mapY-1][mapX-1] *getMap();
+
   //DEBUG
   void printMap(); //Prints out all the characters in the map
 

@@ -1,3 +1,6 @@
+#ifndef MAP_HPP
+#define MAP_HPP
+
 #include <iostream>
 #include <ncurses.h>
 #include <fstream>
@@ -18,7 +21,7 @@ public: //Methods
   int mapInit(std::string file);
 
   //Update the characters in the map array
-  void updateMap(); //NOTE: Will have to add arguments
+  void updateMap(std::string updatedMap[mapY-1][mapX-1]); //NOTE: Will have to add arguments
   //Draws the characters stored in the map array to the screen
   void drawMap();
 
@@ -34,3 +37,5 @@ public: //Methods
   ~Map();
 
 };
+
+#endif

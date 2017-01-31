@@ -37,11 +37,32 @@ int Map::mapInit(std::string file) {
 
 }
 
-void Map::updateMap() {
 
+
+void Map::updateMap(std::string updatedMap[mapY-1][mapX-1]) {
+  //Replace the old map with the new one
+  map = updatedMap;
 }
 
 void Map::drawMap() {
+  //PSEUDOCODE
+  //Move the cursor to the location on screen specified by the array
+  //Write the X character for now
+
+  //Y axis
+  for (int i = 0; i <= mapY - 1; i++) {
+
+    //X axis
+    for (int j = 0, j <= mapX - 1; j++) {
+      //Move the cursor
+      move(i, j);
+      //Print X
+      printw("X");
+    }
+
+  }
+
+
 
 }
 

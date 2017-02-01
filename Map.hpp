@@ -13,7 +13,7 @@ private: //Attributes
   int mapX;
   int mapY;
 
-  std::string map[mapY-1][mapX-1];
+  std::string* map;
   std::string file;
 
 public: //Methods
@@ -21,19 +21,20 @@ public: //Methods
   int mapInit(std::string file);
 
   //Update the characters in the map array
-  void updateMap(std::string updatedMap[mapY-1][mapX-1]); //NOTE: Will have to add arguments
+  void updateMap(std::string* updatedMap); //NOTE: Will have to add arguments
   //Draws the characters stored in the map array to the screen
   void drawMap();
 
   //Getters and setters
-  int *mapSize();
-  std::string[mapY-1][mapX-1] *getMap();
+  int& getmapX() {return mapX;}
+  int& getMapY() {return mapY;}
+  std::string *getMap();
 
   //DEBUG
   void printMap(); //Prints out all the characters in the map
 
   //Constructor and destructor
-  Map();
+  Map(std::string file);
   ~Map();
 
 };

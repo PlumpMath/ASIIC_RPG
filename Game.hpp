@@ -2,11 +2,18 @@
 #define GAME_HPP
 
 #include <iostream>
+#include <vector>
+
+#include <ncurses.h>
+
 #include "Map.hpp"
+#include "GameObject.hpp"
 
 class Game {
 private:
     Map* gameMap();
+    std::string mapFile;
+    std::vector<GameObject*> objectList;
 
 public:
   void updateScr(); //Updates the desired location of some objects
@@ -14,7 +21,7 @@ public:
 
   void initGame(std::string file); // Inits ncurses and everything needed
 
-  void addObject();
+  void addObject(GameObject* object);
 
 };
 

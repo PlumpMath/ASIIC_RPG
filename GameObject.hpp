@@ -10,8 +10,18 @@ public:
 
   virtual void draw();
 
-private:
+  void setPosVector(int pos) {
+    posVector = pos;
+  }
+  int getPosVector() {
+    return posVector;
+  }
 
+private:
+  int posY;
+  int posX;
+
+  int posVector;
 };
 
 #endif

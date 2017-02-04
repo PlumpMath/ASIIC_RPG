@@ -1,5 +1,7 @@
 IMPORTANT:
 -Remove the map size hard coded in
+-Change the pos getters and setters in GameObject
 
 
 IDEAS:
+-Make the init use flags and init according to those flags

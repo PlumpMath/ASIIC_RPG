@@ -1,7 +1,27 @@
 IMPORTANT:
 -Remove the map size hard coded in
 -Change the pos getters and setters in GameObject
+-Code the cleanupGame() function
 
 
 IDEAS:
 -Make the init use flags and init according to those flags
+-Make an include file and cleanup all the includes that are unnecessery
+-be able to change the level using another methode
+
+
+
+
+
+
+//GOOD REFERENCES:
+/*
+printw(string);         Print on stdscr at present cursor position
+mvprintw(y, x, string);  Move to (y, x) then print string
+wprintw(win, string);   Print on window win at present cursor position
+                            in the window
+mvwprintw(win, y, x, string);    Move to (y, x) relative to window
+                                     co-ordinates and then print
+
+Tutorial : http://tldp.org/HOWTO/NCURSES-Programming-HOWTO/index.html
+*/

@@ -1,4 +1,5 @@
 #include "Game.hpp"
+#include "GameObject.hpp"
 
 void Game::updateScr() {
 
@@ -24,4 +25,11 @@ void Game::addObject(GameObject* object) {
 
   //Send its position back to the object inserted in
   object->setPosVector(objectList.size() - 1);
+}
+
+void Game::cleanupGame() {
+    curs_set(1);
+    clear();
+    //Shutdown ncurses
+    endwin();
 }

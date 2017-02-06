@@ -7,7 +7,8 @@
 #include <ncurses.h>
 
 #include "Map.hpp"
-#include "GameObject.hpp"
+
+class GameObject;
 
 class Game {
 private:
@@ -20,8 +21,10 @@ public:
   void drawScr(); //Displays the objects
 
   void initGame(std::string file); // Inits ncurses and everything needed
+  void cleanupGame();
 
   void addObject(GameObject* object);
+
 
 };
 

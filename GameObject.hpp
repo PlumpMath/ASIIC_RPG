@@ -17,7 +17,10 @@ public:
     return posVector;
   }
 
-private:
+  int& X() {return posX;};
+  int& Y() {return posY;};
+
+protected:
   int posY;
   int posX;
 

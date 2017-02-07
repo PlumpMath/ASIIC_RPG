@@ -13,7 +13,7 @@ void Game::initGame(std::string file) {
   //Init the lib
   initscr();
 
-  //Initializes the Map file according to the parameter passed on
+  //Initializesthe Map file according to the parameter passed on
   this->mapFile = file;
 
   //TODO: init other parts of the lib if necessary

@@ -17,6 +17,8 @@ private:
     std::vector<GameObject*> objectList;
 
 public:
+  std::vector<GameObject*>& objectList() {return objectList;}; //objectList accessor
+
   void updateScr(); //Updates the desired location of some objects
   void drawScr(); //Displays the objects
 

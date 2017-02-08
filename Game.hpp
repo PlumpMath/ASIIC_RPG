@@ -11,13 +11,13 @@
 class GameObject;
 
 class Game {
-private:
+protected:
     Map* gameMap();
     std::string mapFile;
     std::vector<GameObject*> objectList;
 
 public:
-  std::vector<GameObject*>& objectList() {return objectList;}; //objectList accessor
+  std::vector<GameObject*>& getObjectList() {return objectList;}; //objectList accessor
 
   void updateScr(); //Updates the desired location of some objects
   void drawScr(); //Displays the objects

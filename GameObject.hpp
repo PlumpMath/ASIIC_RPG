@@ -6,9 +6,9 @@
 
 class GameObject {
 public:
-  virtual void update();
+  virtual void update() {}
 
-  virtual void draw();
+  virtual void draw() {}
 
   void setPosVector(int pos) {
     posVector = pos;

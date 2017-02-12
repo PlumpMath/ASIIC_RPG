@@ -36,18 +36,23 @@ void gameLoop(Game* game) {
 
   GameObjectRect* rect; //Create a rectangle
 
-  int* rectSize = rect->size();
+  //get the size pointers
+  int rectSizeX = rect->sizeX();
+  int rectSizeY = rect->sizeY();
 
-  int tempRectSize[2] = {5, 5}; //Default size to a square of 5 by 5
-  rectSize = tempRectSize;
+  //Default the size to a 5x5 square
+  rectSizeX = 5;
+  rectSizeY = 5;
 
-  rectSize = rect->size();
-
-  std::cout << rectSize << std::endl;
-
-  unsigned int vectorSize = game->getObjectList().size();
+  //Read and display the size for DEBUG reasons
+  rectSizeX = rect->sizeX();
+  std::cout << "Size X : " << rectSizeX << std::endl;
+  rectSizeY = rect->sizeY();
+  std::cout << "Size y : " << rectSizeY << std::endl;
 
   //TODO: get the pointer array and print it out in order to check if it is correctly modifying the value
+
+  unsigned int vectorSize = game->getObjectList().size();
 
   while (isRunning) {
     isRunning = false;

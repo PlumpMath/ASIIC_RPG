@@ -7,10 +7,16 @@
 class GameObjectRect : public GameObject {
 public:
   //Ability to get and set the size
-  int*& size() {return rectSize;};
+  int& sizeX() {return rectSizeX;};
+  int& sizeY() {return rectSizeY;};
+
+  void update();
+  void draw();
 
 private:
-  int* rectSize;
+  //Size variables of the rect
+  int rectSizeX;
+  int rectSizeY;
 
   //Defaults at the top of the window
   int posY = 0;

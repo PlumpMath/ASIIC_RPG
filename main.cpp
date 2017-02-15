@@ -36,25 +36,36 @@ void gameLoop(Game* game) {
 
   GameObjectRect* rect; //Create a rectangle
 
-  //get the size pointers
-  int rectSizeX = rect->sizeX();
-  int rectSizeY = rect->sizeY();
-
   //Default the size to a 5x5 square
-  rectSizeX = 5;
-  rectSizeY = 5;
+  rect->setSizeX(5);
+  rect->setSizeY(5);
 
-  //Read and display the size for DEBUG reasons
-  rectSizeX = rect->sizeX();
-  std::cout << "Size X : " << rectSizeX << std::endl;
-  rectSizeY = rect->sizeY();
-  std::cout << "Size y : " << rectSizeY << std::endl;
-
-  //TODO: get the pointer array and print it out in order to check if it is correctly modifying the value
-
+  // //Read and display the size for DEBUG reasons
+  // int otherrectSizeX = rect->getSizeX();
+  // std::cout << "Size X : " << otherrectSizeX << std::endl;
+  // int otherrectSizeY = rect->getSizeY();
+  // std::cout << "Size y : " << otherrectSizeY << std::endl;
   unsigned int vectorSize = game->getObjectList().size();
 
+  //Add the rectangle to the game
+  game->addObject(rect);
+
   while (isRunning) {
+
+    for (int i = 0; i <= game->getNumObjects(); i++) {
+      //Get a pointer to the objectList vector
+      std::vector<GameObject*>& vector = game->getObjectList();
+
+      //Update the objects position, size, etc
+      vector[i]->update();
+      //Draw the changes to the screen
+      vector[i]->draw();
+
+    }
+
+    //TODO: Exit the gameloop if ESC is pressed.
+    //For now it will exite after one frame
+
     isRunning = false;
   }
 

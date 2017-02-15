@@ -25,6 +25,9 @@ void Game::addObject(GameObject* object) {
 
   //Send its position back to the object inserted in
   object->setPosVector(objectList.size() - 1);
+
+  //update the vector size variable
+  numObjects = objectList.size();
 }
 
 void Game::cleanupGame() {

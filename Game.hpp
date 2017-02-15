@@ -14,7 +14,9 @@ class Game {
 protected:
     Map* gameMap();
     std::string mapFile;
+
     std::vector<GameObject*> objectList;
+    int numObjects = objectList.size();
 
 public:
   std::vector<GameObject*>& getObjectList() {return objectList;}; //objectList accessor
@@ -26,6 +28,9 @@ public:
   void cleanupGame();
 
   void addObject(GameObject* object);
+
+  //Numobjects accessor
+  int getNumObjects() {return numObjects;};
 
 
 };

@@ -6,9 +6,13 @@
 
 class GameObjectRect : public GameObject {
 public:
-  //Ability to get and set the size
-  int& sizeX() {return rectSizeX;};
-  int& sizeY() {return rectSizeY;};
+  //get the size
+  int getSizeX() {return rectSizeX;};
+  int getSizeY() {return rectSizeY;};
+
+  //set the size
+  void setSizeX(int X) {rectSizeX = X;};
+  void setSizeY(int Y) {rectSizeY = Y;};
 
   void update();
   void draw();

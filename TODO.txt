@@ -3,6 +3,8 @@ IMPORTANT:
 -Change the pos getters and setters in GameObject
 -Code the cleanupGame() function
 -Test all the accessors
+-Review all accessors and mutators and make sure they use the same technique
+-Change GameObjectRect accessors and mutators
 
 
 IDEAS:

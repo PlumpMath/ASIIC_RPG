@@ -30,6 +30,9 @@ int main() {
 //Holds the main loop of the game
 //NOTE: Most of the program functions and all will be in the objects
 void gameLoop(Game* game) {
+
+  //TODO: Don't forget to load the map
+
   std::cout << "In game loop" << std::endl;
 
   bool isRunning = true;
@@ -56,11 +59,20 @@ void gameLoop(Game* game) {
       //Get a pointer to the objectList vector
       std::vector<GameObject*>& vector = game->getObjectList();
 
-      //Update the objects position, size, etc
-      vector[i]->update();
-      //Draw the changes to the screen
-      vector[i]->draw();
+      std::cout << "DEBUG" << std::endl;
+      std::cout << "i = " << i << std::endl;
 
+      //Get the object
+      GameObject* currentGameObject = vector.at(i);
+
+      //DEBUG
+      std::string debug = currentGameObject->getName();
+      std::cout << "Debug = " << debug << std::endl;
+
+      //Update the objects position, size, etc
+      currentGameObject->update();
+      //Draw the changes to the screen
+      currentGameObject->draw();
     }
 
     //TODO: Exit the gameloop if ESC is pressed.

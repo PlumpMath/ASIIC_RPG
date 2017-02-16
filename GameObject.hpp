@@ -20,11 +20,18 @@ public:
   int& X() {return posX;};
   int& Y() {return posY;};
 
+  //Get and Set the Name
+  std::string getName() {return name;}
+  void setName(std::string objectName) {name = objectName;};
+
 protected:
   int posY;
   int posX;
 
   int posVector;
+
+  //Name of the object (defaults to GameObject)
+  std::string name = "GameObject";
 };
 
 #endif

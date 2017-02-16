@@ -27,7 +27,11 @@ void Game::addObject(GameObject* object) {
   object->setPosVector(objectList.size() - 1);
 
   //update the vector size variable
+std::cout << "Num Objects : " << numObjects << std::endl;
+
   numObjects = objectList.size();
+
+  std::cout << "Num Objects : " << numObjects << std::endl;
 }
 
 void Game::cleanupGame() {

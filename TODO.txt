@@ -5,6 +5,10 @@ IMPORTANT:
 -Test all the accessors
 -Review all accessors and mutators and make sure they use the same technique
 -Change GameObjectRect accessors and mutators
+-make the app exit when ESC is pressed
+-make a handle input function
+-Find a use for the update function XD there is definitely one
+-Give option of character for the rectangle
 
 
 IDEAS:

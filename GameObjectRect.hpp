@@ -2,6 +2,8 @@
 #define GAME_OBJECT_RECT_HPP
 
 #include <iostream>
+#include <string>
+
 #include "GameObject.hpp"
 
 class GameObjectRect : public GameObject {
@@ -15,6 +17,7 @@ public:
   void setSizeY(int Y) {rectSizeY = Y;};
 
   void update();
+
   void draw();
 
 private:
@@ -22,9 +25,12 @@ private:
   int rectSizeX;
   int rectSizeY;
 
-  //Defaults at the top of the window
-  int posY = 0;
-  int posX = 0;
+  //Default
+  //TODO: Make it default at the top of the window
+  //NOTE: Its like this just for debug reasons
+  int posY = 5;
+  int posX = 5;
+
 
 };
 

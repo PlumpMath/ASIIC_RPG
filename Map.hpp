@@ -6,6 +6,7 @@
 #include <fstream>
 #include <sstream>
 
+// what is this Abstract Data Type for?
 class Map {
 private: //Attributes
 
@@ -26,6 +27,8 @@ public: //Methods
   void drawMap();
 
   //Getters and setters
+  // just to iterate, you are returning the address of the value
+  // so anyone who recieves this will be able to manipulate this (**be careful doing this!!**)
   int& getmapX() {return mapX;}
   int& getMapY() {return mapY;}
   std::string *getMap();

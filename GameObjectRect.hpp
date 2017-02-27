@@ -6,6 +6,7 @@
 
 #include "GameObject.hpp"
 
+// interesting, what are you trying to do with this?
 class GameObjectRect : public GameObject {
 public:
   //get the size
@@ -16,8 +17,9 @@ public:
   void setSizeX(int X) {rectSizeX = X;};
   void setSizeY(int Y) {rectSizeY = Y;};
 
+  // update position and information
   void update();
-
+  // render function
   void draw();
 
 private:
@@ -30,8 +32,6 @@ private:
   //NOTE: Its like this just for debug reasons
   int posY = 5;
   int posX = 5;
-
-
 };
 
 #endif

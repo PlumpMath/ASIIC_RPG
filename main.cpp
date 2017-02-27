@@ -3,6 +3,24 @@
 #include "GameObjectRect.hpp"
 #include <vector>
 
+/*
+  NOTE: If you are declaring an object of a specific type that only needs to
+        be created once, like game, it might be a better idea to initialize it on
+        the stack using "Game game = Game();"
+
+        Pointers give you a lot of control over your function but they can get messy and
+        lead to memory and aliasing problems
+
+        For instance, even if cleanupGame() ran correctly you still need to deallocate
+        the pointer "game". Think about it this way, for all memory you allocate (new, malloc, calloc)
+        you need to deallocate. If this is done without a pointer, all the allocation and
+        deallocation would happen with the constructor and destructor.
+
+        Try and also declare most of your longer-lasting variables at the top.
+        This is good practice for organization and actually helps the compiler out too.
+
+*/
+
 //Prototypes
 void gameLoop(Game* game);
 
@@ -40,8 +58,8 @@ void gameLoop(Game* game) {
   GameObjectRect* rect; //Create a rectangle
 
   //Default the size to a 5x5 square
-  rect->setSizeX(5);
-  rect->setSizeY(5);
+  // rect->setSizeX(5);
+  // rect->setSizeY(5);
 
   // //Read and display the size for DEBUG reasons
   // int otherrectSizeX = rect->getSizeX();
@@ -55,6 +73,7 @@ void gameLoop(Game* game) {
 
   while (isRunning) {
 
+    // can do an iterator over this: I will show you this later
     for (int i = 0; i <= game->getNumObjects(); i++) {
       //Get a pointer to the objectList vector
       std::vector<GameObject*>& vector = game->getObjectList();

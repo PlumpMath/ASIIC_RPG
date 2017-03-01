@@ -37,3 +37,11 @@ void Game::gameLoop() {
     running = false;
   }
 }
+
+Game::Game() {
+
+}
+
+Game::~Game() {
+  
+}

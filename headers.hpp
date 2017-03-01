@@ -7,6 +7,8 @@
 #include <vector>
 #include <stack>
 
+#include <thread>
+
 #include <ncurses.h>
 
 #endif

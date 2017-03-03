@@ -1,22 +1,27 @@
 #include "TestGameState.hpp"
 
 void TestGameState::handleInput() {
-  while (game->eventHandler.full()) {
-    ch = game->eventHandler.getEvent();
+  while (game->getEventPtr()->full()) {
 
-    if (ch == KEY_LEFT) {
-      std::cout << "Key left pressed !" << std::endl;
-      running = false;
+    int ch = game->getEventPtr()->getEvent();
+
+
+    if (ch == KEY_F(2)) {
+      printw("Key F2 pressed !");
+      game->stop();
     }
-
   }
 }
 
 void TestGameState::update() {
-  //Nothing here for this test
-  std::cout << test << std::endl;
+  noecho();
+  refresh();
 }
 
 void TestGameState::draw() {
 
+}
+
+TestGameState::TestGameState(Game* gameObject) {
+  game = gameObject;
 }

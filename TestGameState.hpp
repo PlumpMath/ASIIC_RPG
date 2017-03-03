@@ -15,6 +15,9 @@ public:
 
   void draw(); //Draws everything to the screen
 
+  //Default constructor
+  TestGameState(Game* gameObject); // {game = gameObject;};
+
 };
 
 #endif

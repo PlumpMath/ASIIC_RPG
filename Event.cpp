@@ -14,11 +14,10 @@ void Event::loop() {
     getInput();
 
     //Push the input to the stack
-    if (ch != -1000) addInput(ch);
-    else std::cout << "Error while fetching the input" << std::endl;
+    if (ch != -1) addInput(ch);
 
     //Reset ch
-    ch = -1000;
+    ch = -1;
   }
 }
 
@@ -32,7 +31,7 @@ bool Event::full() {
 }
 
 Event::Event() {
-  std::cout << "Initializing input manager..." << std::endl;
+  //std::cout << "Initializing input manager..." << std::endl;
 
   //NOTE: Here we use a function pointer to loop
   //It compiles, so it shouldn't cause any problem
@@ -42,13 +41,13 @@ Event::Event() {
 }
 
 Event::~Event() {
-  std::cout << "Exiting the input manager" << std::endl;
+  //std::cout << "Exiting the input manager" << std::endl;
 
   running = false;
   inputFetch.join(); //Wait for the thread to finish before exiting
 }
 
-int Event::getInput() {
+int Event::getEvent() {
   int value = events.top();
   events.pop();
 

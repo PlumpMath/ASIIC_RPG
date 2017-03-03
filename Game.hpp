@@ -5,6 +5,9 @@
 #include "GameState.hpp"
 #include "Event.hpp"
 
+class GameState; //Forword declaration of Game state to avoid compilation errors
+//To see compilation error, go to commit #25
+
 class Game {
 private: //Attributes
   //TODO:
@@ -18,16 +21,20 @@ private: //Attributes
 public: //Methods
   void gameLoop(); //Main loop of the program
 
-  //TODO:
-
   //All the classes for handling states
   void pushState(GameState* state); //Pushes a state
   void popState(); //Pops a state
   void changeState(GameState* state); //Pops then pushes a state
   GameState* peekState(); //Returns a pointer to the top state
 
+  //Returns a pointer to the event object
+  Event* getEventPtr();
+
   //initGame()
   //cleanupGame(
+
+  //Sets running to false
+  void stop();
 
   //Constructor
   Game();

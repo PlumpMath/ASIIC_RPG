@@ -20,11 +20,10 @@ GameState* Game::peekState() {
 
 void Game::gameLoop() {
   while (running) {
-    std::cout << "In gameLoop" << std::endl;
 
     GameState* statePtr = peekState();
     if (statePtr == nullptr) {
-      std::cout << "No active GameState, exiting application now" << std::endl;
+      // std::cout << "No active GameState, exiting application now" << std::endl;
       return;
     }
 
@@ -34,14 +33,29 @@ void Game::gameLoop() {
 
     peekState()->draw(); //Draws the objects of the game state to the screen
 
-    running = false;
   }
 }
 
-Game::Game() {
+void Game::stop() {
+  // std::cout << "Shutting down game" << std::endl;
+  endwin();
+  running = false;
+}
 
+Event* Game::getEventPtr() {
+  return &eventHandler;
+}
+
+Game::Game() {
+  initscr(); // Start curse mode
+  raw(); // Line buffering disabled
+  keypad(stdscr, TRUE); //Get F1, F2 etc...
+  noecho(); // Don't echo() while we do getch()
+  raw();
+
+  printw("TEST PTN");
 }
 
 Game::~Game() {
-  
+
 }

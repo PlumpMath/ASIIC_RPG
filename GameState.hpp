@@ -4,6 +4,9 @@
 #include "headers.hpp"
 #include "Game.hpp"
 
+class Game; //Forward declaration of Game to avoid comp errors
+// For full error, see commit #25
+
 class GameState {
 protected:
   Game* game;
@@ -15,10 +18,6 @@ public:
   virtual void update() = 0; //Updates something every frame
 
   virtual void draw() = 0; //Draws everything to the screen
-
-  //Default constructor
-  GameState(Game* gameObject) {game = gameObject;};
-
 
 };
 

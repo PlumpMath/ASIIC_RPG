@@ -1,85 +1,17 @@
 #include <iostream>
+
 #include "Game.hpp"
-#include "GameObjectRect.hpp"
-#include <vector>
+#include "TestGameState.hpp"
 
-//Prototypes
-void gameLoop(Game* game);
-
-//Holds all the different function calls needed for the program to work
 int main() {
-  Game* game = new Game();
-  game->initGame("level"); //initialize the game and all with the level
+  Game game;
 
-  std::cout << "Game Initialized" << std::endl;
+  game.pushState(new TestGameState(&game));
 
-  //Run the main game logic
-  gameLoop(game);
+  game.gameLoop();
 
-  std::cout << "Gameloop done" << std::endl;
-
-  //Clear everything before exiting
-  game->cleanupGame();
-
-  std::cout << "Game has correctly shut down" << std::endl;
+  //TODO: Code an event system
 
   return 0;
-
-}
-
-//Holds the main loop of the game
-//NOTE: Most of the program functions and all will be in the objects
-void gameLoop(Game* game) {
-
-  //TODO: Don't forget to load the map
-
-  std::cout << "In game loop" << std::endl;
-
-  bool isRunning = true;
-
-  GameObjectRect* rect; //Create a rectangle
-
-  //Default the size to a 5x5 square
-  rect->setSizeX(5);
-  rect->setSizeY(5);
-
-  // //Read and display the size for DEBUG reasons
-  // int otherrectSizeX = rect->getSizeX();
-  // std::cout << "Size X : " << otherrectSizeX << std::endl;
-  // int otherrectSizeY = rect->getSizeY();
-  // std::cout << "Size y : " << otherrectSizeY << std::endl;
-  unsigned int vectorSize = game->getObjectList().size();
-
-  //Add the rectangle to the game
-  game->addObject(rect);
-
-  while (isRunning) {
-
-    for (int i = 0; i <= game->getNumObjects(); i++) {
-      //Get a pointer to the objectList vector
-      std::vector<GameObject*>& vector = game->getObjectList();
-
-      std::cout << "i = " << i << std::endl;
-
-      //Get the object
-      GameObject* currentGameObject = vector.at(i);
-
-      std::cout << "DEBUG" << std::endl;
-
-      //DEBUG
-      std::string debug = currentGameObject->getName();
-      std::cout << "Debug = " << debug << std::endl;
-
-      //Update the objects position, size, etc
-      currentGameObject->update();
-      //Draw the changes to the screen
-      currentGameObject->draw();
-    }
-
-    //TODO: Exit the gameloop if ESC is pressed.
-    //For now it will exite after one frame
-
-    isRunning = false;
-  }
 
 }

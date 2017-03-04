@@ -1,37 +1,45 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 
-#include <iostream>
-#include <vector>
+#include "headers.hpp"
+#include "GameState.hpp"
+#include "Event.hpp"
 
-#include <ncurses.h>
-
-#include "Map.hpp"
-
-class GameObject;
+class GameState; //Forword declaration of Game state to avoid compilation errors
+//To see compilation error, go to commit #25
 
 class Game {
-protected:
-    Map* gameMap();
-    std::string mapFile;
+private: //Attributes
+  //TODO:
+  //GameMap
+  //mapFile
+  std::stack<GameState*> gameStates;
+  bool running = true;
 
-    std::vector<GameObject*> objectList;
-    int numObjects = objectList.size();
+  Event eventHandler;
 
-public:
-  std::vector<GameObject*>& getObjectList() {return objectList;}; //objectList accessor
+public: //Methods
+  void gameLoop(); //Main loop of the program
 
-  void updateScr(); //Updates the desired location of some objects
-  void drawScr(); //Displays the objects
+  //All the classes for handling states
+  void pushState(GameState* state); //Pushes a state
+  void popState(); //Pops a state
+  void changeState(GameState* state); //Pops then pushes a state
+  GameState* peekState(); //Returns a pointer to the top state
 
-  void initGame(std::string file); // Inits ncurses and everything needed
-  void cleanupGame();
+  //Returns a pointer to the event object
+  Event* getEventPtr();
 
-  void addObject(GameObject* object);
+  //initGame()
+  //cleanupGame(
 
-  //Numobjects accessor
-  int getNumObjects() {return numObjects;};
+  //Sets running to false
+  void stop();
 
+  //Constructor
+  Game();
+  //Destructor
+  ~Game();
 
 };
 

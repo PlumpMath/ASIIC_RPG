@@ -59,11 +59,12 @@ void gameLoop(Game* game) {
       //Get a pointer to the objectList vector
       std::vector<GameObject*>& vector = game->getObjectList();
 
-      std::cout << "DEBUG" << std::endl;
       std::cout << "i = " << i << std::endl;
 
       //Get the object
       GameObject* currentGameObject = vector.at(i);
+
+      std::cout << "DEBUG" << std::endl;
 
       //DEBUG
       std::string debug = currentGameObject->getName();

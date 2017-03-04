@@ -21,7 +21,7 @@ public:
   int& Y() {return posY;};
 
   //Get and Set the Name
-  std::string getName() {return name;}
+  std::string getName() {return name;};
   void setName(std::string objectName) {name = objectName;};
 
 protected:

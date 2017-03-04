@@ -5,6 +5,8 @@
 #include "GameState.hpp"
 #include "Event.hpp"
 
+#include <cstdlib>
+
 class GameState; //Forword declaration of Game state to avoid compilation errors
 //To see compilation error, go to commit #25
 

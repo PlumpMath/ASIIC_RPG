@@ -50,7 +50,10 @@ Game::Game() {
   initscr(); // Start curse mode
   raw(); // Line buffering disabled
   keypad(stdscr, TRUE); //Get F1, F2 etc...
-  noecho(); // Don't echo() while we do getch()
+  // noecho(); // Don't echo() while we do getch()
+
+  system("setterm -cursor off"); //Gets rid of the white cursor
+
   raw();
 
   printw("TEST PTN");

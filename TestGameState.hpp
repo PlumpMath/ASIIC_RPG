@@ -6,7 +6,7 @@
 
 class TestGameState : public GameState {
 protected:
-  std::string test ;
+  std::string test;
 
 public:
   void handleInput(); //Handles all the input

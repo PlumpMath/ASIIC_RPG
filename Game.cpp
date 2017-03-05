@@ -26,7 +26,6 @@ void Game::gameLoop() {
       // std::cout << "No active GameState, exiting application now" << std::endl;
       return;
     }
-
     peekState()->handleInput(); //Handles the input relevent to this game state
 
     peekState()->update(); //Updates certain aspects of the game state
@@ -38,6 +37,7 @@ void Game::gameLoop() {
 
 void Game::stop() {
   // std::cout << "Shutting down game" << std::endl;
+  printw("Shutting down");
   endwin();
   running = false;
 }
@@ -54,7 +54,6 @@ Game::Game() {
 
   raw();
 
-  printw("TEST PTN");
 }
 
 Game::~Game() {

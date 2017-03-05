@@ -42,11 +42,9 @@ void Game::stop() {
   running = false;
 }
 
-Event* Game::getEventPtr() {
-  return &eventHandler;
-}
-
 Game::Game() {
+  running = true;
+
   initscr(); // Start curse mode
   raw(); // Line buffering disabled
   keypad(stdscr, TRUE); //Get F1, F2 etc...

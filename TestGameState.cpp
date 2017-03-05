@@ -1,16 +1,7 @@
 #include "TestGameState.hpp"
 
 void TestGameState::handleInput() {
-  while (game->getEventPtr()->full()) {
-
-    int ch = game->getEventPtr()->getEvent();
-
-
-    if (ch == KEY_F(2)) {
-      printw("Key F2 pressed !");
-      game->stop();
-    }
-  }
+  
 }
 
 void TestGameState::update() {
@@ -23,5 +14,6 @@ void TestGameState::draw() {
 }
 
 TestGameState::TestGameState(Game* gameObject) {
+  test = "Hello world";
   game = gameObject;
 }

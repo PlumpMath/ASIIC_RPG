@@ -21,7 +21,7 @@ void Event::loop() {
   }
 }
 
-int Event::getInput() {
+void Event::getInput() {
   ch = getch();
 }
 

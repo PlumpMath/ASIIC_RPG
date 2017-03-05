@@ -3,7 +3,6 @@
 
 #include "headers.hpp"
 #include "GameState.hpp"
-#include "Event.hpp"
 
 #include <cstdlib>
 
@@ -16,9 +15,7 @@ private: //Attributes
   //GameMap
   //mapFile
   std::stack<GameState*> gameStates;
-  bool running = true;
-
-  Event eventHandler;
+  bool running;
 
 public: //Methods
   void gameLoop(); //Main loop of the program
@@ -28,9 +25,6 @@ public: //Methods
   void popState(); //Pops a state
   void changeState(GameState* state); //Pops then pushes a state
   GameState* peekState(); //Returns a pointer to the top state
-
-  //Returns a pointer to the event object
-  Event* getEventPtr();
 
   //initGame()
   //cleanupGame(

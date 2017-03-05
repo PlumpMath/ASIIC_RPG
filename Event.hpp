@@ -7,7 +7,6 @@ class Event {
 private:
   void addInput(int ch);
 
-protected: //Attributes
   int ch; //Character input
 
   std::stack<int> events; //All the events
@@ -19,7 +18,7 @@ protected: //Attributes
 public: //Methods
   void loop(); //Main loop in the thread
 
-  int getInput(); //Pops then returns an event
+  void getInput(); //Pops then returns an event
 
   bool full(); //Checks if the stack has events in it
 

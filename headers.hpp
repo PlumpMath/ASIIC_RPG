@@ -9,6 +9,6 @@
 
 #include <thread>
 
-#include <ncurses.h>
+#include <curses.h>
 
 #endif

@@ -38,7 +38,6 @@ void Game::gameLoop() {
 void Game::stop() {
   // std::cout << "Shutting down game" << std::endl;
   printw("Shutting down");
-  endwin();
   running = false;
 }
 
@@ -48,14 +47,14 @@ Game::Game() {
   initscr(); // Start curse mode
   raw(); // Line buffering disabled
   keypad(stdscr, TRUE); //Get F1, F2 etc...
-  // noecho(); // Don't echo() while we do getch()
+  noecho(); // Don't echo() while we do getch()
 
   system("setterm -cursor off"); //Gets rid of the white cursor
-
-  raw();
 
 }
 
 Game::~Game() {
+  system("setterm -cursor on"); //Turn the cursor back on
 
+  endwin(); //Shut down curses mode
 }

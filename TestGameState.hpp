@@ -3,10 +3,13 @@
 
 #include "headers.hpp"
 #include "GameState.hpp"
+#include "GameObjectX.hpp"
 
 class TestGameState : public GameState {
 protected:
   std::string test;
+
+  GameObjectX xObject;
 
 public:
   void handleInput(); //Handles all the input
@@ -17,6 +20,9 @@ public:
 
   //Default constructor
   TestGameState(Game* gameObject); // {game = gameObject;};
+
+  //xObject accessor
+  GameObjectX* getXObject() {return &xObject;};
 
 };
 

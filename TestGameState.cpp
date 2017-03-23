@@ -17,6 +17,13 @@ void TestGameState::handleInput() {
   int xObjectX = getXObject()->getPosX();
   int xObjectY = getXObject()->getPosY();
 
+  GameObjectX* xObjectPtr = getXObject();
+
+
+    printw("TEST\n");
+    printw(xObjectX);
+    ch = getch();
+
   switch (ch) {
     case KEY_LEFT:
       getXObject()->move(xObjectY, xObjectX--);

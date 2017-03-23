@@ -5,12 +5,11 @@ void GameObjectX::draw() {
 }
 
 void GameObjectX::move(int xPos, int yPos) {
+
   //Delete the old pos
   move(Y, X); //Make sure the cursor is on the object
   printw(" "); //Print a space so that the character seems empty
-
-  //Print the new pos
-  X = xPos;
+  //Print the screen
   Y = yPos;
 
   move(Y, X);
